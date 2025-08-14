@@ -1,5 +1,6 @@
 body {
     background-color: #F0EADA;
+    margin-left: 2em;
 
 }
 header {
@@ -20,8 +21,17 @@ nav a {
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
 footer {
-    bottom: 0px;
+    bottom: 0;
     position: fixed;
     text-align: center;
     width: 100%;

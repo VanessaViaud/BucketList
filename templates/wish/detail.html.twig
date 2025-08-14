@@ -3,5 +3,10 @@
 {% block title %}{{ parent() }} | Wishes {% endblock %}
 
 {% block body %}
-<h3>Détail du wish n° {{ id }}... Titre de l'idée ici</h3>
+    <h3>Détail du wish n° {{ id }}</h3>
+    <h4>{{ wish.title }}</h4>
+    <p>{{ wish.description }}</p>
+    <p>{{ wish.author }}</p>
+    <p>{{ wish.dateCreated ? wish.dateCreated|date('d/m/Y') : '' }}</p>
+
 {% endblock %}
