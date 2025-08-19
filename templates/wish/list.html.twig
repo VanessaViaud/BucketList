@@ -3,14 +3,13 @@
 {% block title %}{{ parent() }} | Wishes {% endblock %}
 
 {% block body %}
-<h3>All wishes !</h3>
-
-    <ul>
+<main>
+    <ul class="list-group list-group-flush">
         {% for wish in wishes %}
-        <li><a href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }}</a></li>
+        <li ><a class="list-group-item list-group-item-action" href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }}</a></li>
         {% endfor %}
     </ul>
-
+</main>
 {#    <table>#}
 {#        <tr>#}
 {#            <th>Id</th>#}

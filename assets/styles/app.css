@@ -1,4 +1,10 @@
-
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+}
 header {
     display: flex;
     flex-direction: column;
@@ -29,6 +35,30 @@ a {
 li {
     list-style: none;
 }
+.form-vv {
+    padding: 30px;
+}
+.card {
+    background-color: #79759f;
+    width: 40%;
+    height: auto;
+    border: none;
+    box-shadow: 16px 17px 11px 3px rgba(44,40,80,0.52);
+    -webkit-box-shadow: 16px 17px 11px 3px rgba(44,40,80,0.52);
+    -moz-box-shadow: 16px 17px 11px 3px rgba(44,40,80,0.52);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-btn-vv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
 
 footer {
     bottom: 0;
@@ -50,4 +80,30 @@ footer {
     background-color: #1e3649;
     border:none;
     color: #86adda;
+}
+.list-group {
+    background-color: #79759f;
+    width: 550px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
+    -webkit-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
+    -moz-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
+    overflow: hidden; /* pour éviter que le border-radius soit cassé par les items */
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: #79759f;
+    color: #1e3649;
+    padding: 15px;
+    border-bottom: 1px solid #86adda;
+
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+.list-group-item-action:hover {
+    background-color: #86adda;
 }
