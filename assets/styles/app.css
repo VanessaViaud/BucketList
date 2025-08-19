@@ -1,15 +1,15 @@
-body {
-    background-color: #F0EADA;
-    margin-left: 2em;
 
-}
 header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #B0C49B;
+    background-color: #79759f;
+    opacity: 80%;
     padding-left: 60px;
 
+}
+h1 {
+    color: #2c2850;
 }
 .header {
     display: flex;
@@ -17,7 +17,7 @@ header {
     gap: 10px
 }
 nav a {
-    color:black;
+    color: #1e3649;
     text-decoration: none;
 }
 
@@ -35,6 +35,19 @@ footer {
     position: fixed;
     text-align: center;
     width: 100%;
-    background-color: #F0DAE0 ;
+    background-color: #86adda;
     padding-left: 60px;
+}
+#wish_submit,
+.btn-secondary {
+    background-color: #86adda;
+    border:none;
+    color: #1e3649;
+}
+
+#wish_submit:hover,
+.btn-secondary:hover {
+    background-color: #1e3649;
+    border:none;
+    color: #86adda;
 }

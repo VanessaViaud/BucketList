@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\WishRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: WishRepository::class)]
+//#[ORM\HasLifecycleCallbacks]
 class Wish
 {
     #[ORM\Id]
@@ -15,6 +17,8 @@ class Wish
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Ce champ doit être complété")]
+    #[Assert\Length(min: 2, max: 50, minMessage: "Plus que {{ limit }} caractères", maxMessage: "Moins que {{ limit }} caractères")]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -26,10 +30,10 @@ class Wish
     #[ORM\Column]
     private ?bool $isPublished = false;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(nullable: true)]
     private ?\DateTime $dateCreated = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[ORM\Column(nullable: true)]
     private ?\DateTime $dateUpdated = null;
 
 
@@ -90,11 +94,15 @@ class Wish
     {
         return $this->dateCreated;
     }
-
+// quand une serie entre pour la première fois dans la table, elle a une date de création qui est persistée
+    //et avec l'instant présent mais il faut aussi dire à l'entity qu'il y a des éléments à gérer: voir en tête de fichier où
+    //il faut ajouter :
+//    #[ORM\HasLifecycleCallbacks]
+//    #[ORM\PrePersist()]
     public function setDateCreated(?\DateTime $dateCreated): static
     {
-        $this->dateCreated = $dateCreated;
-
+//        $this->dateCreated = new \DateTime();
+            $this->dateCreated = $dateCreated;
         return $this;
     }
 

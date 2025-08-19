@@ -9,4 +9,7 @@
     <p>{{ wish.author }}</p>
     <p>{{ wish.dateCreated ? wish.dateCreated|date('d/m/Y') : '' }}</p>
 
+    <a class="btn btn-secondary" onclick="return confirm('Etes-vous sûr de vouloir supprimer')" href="{{ path('wish_delete', {'id':wish.id}) }}">{{ 'Supprimer' }}</a>
+    <a class="btn btn-secondary" href="{{ path('wish_update', {'id':wish.id}) }}">{{ 'Modifier' }}</a>
+
 {% endblock %}

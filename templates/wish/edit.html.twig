@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Création {% endblock %}
+
+
+
+{% block body %}
+    <h1>Editer un Wish</h1>
+    <div class="row justify-content-center">
+
+        <div class="col-6">
+            {#    ici on lui donne le nom que l'on a envoyé dans le template via le controller#}
+            {{ form(wish_form) }}
+        </div>
+    </div>
+{% endblock %}
