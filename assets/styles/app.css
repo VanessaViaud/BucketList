@@ -3,7 +3,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
+    margin-top:35px
 }
 header {
     display: flex;
@@ -82,28 +82,31 @@ footer {
     color: #86adda;
 }
 .list-group {
-    background-color: #79759f;
+    /*background-color: #79759f;*/
+    display: flex;
+    gap: 15px;
     width: 550px;
     text-align: center;
+
+    /*box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);*/
+    /*-webkit-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);*/
+    /*-moz-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);*/
     border-radius: 12px;
-    box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
-    -webkit-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
-    -moz-box-shadow: 16px 17px 11px 3px rgba(44, 40, 80, 0.52);
-    overflow: hidden; /* pour éviter que le border-radius soit cassé par les items */
     padding: 0;
+
 }
 
 .list-group-item {
     background-color: #79759f;
     color: #1e3649;
-    padding: 15px;
+    padding: 25px;
     border-bottom: 1px solid #86adda;
-
+    border-radius: 12px;
+    box-shadow: 5px 5px 11px 3px rgba(44, 40, 80, 0.52);
+    -webkit-box-shadow: 5px 5px 11px 3px rgba(44, 40, 80, 0.52);
+    -moz-box-shadow: 5px 5px 11px 3px rgba(44, 40, 80, 0.52);
 }
 
-.list-group-item:last-child {
-    border-bottom: none;
-}
-.list-group-item-action:hover {
+.list-group-item-action:not(.active):hover {
     background-color: #86adda;
 }

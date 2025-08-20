@@ -4,11 +4,11 @@
 
 {% block body %}
 <main>
-    <ul class="list-group list-group-flush">
+    <div class="list-group list-group-flush">
         {% for wish in wishes %}
-        <li ><a class="list-group-item list-group-item-action" href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }} [ {{ wish.category.name }} ]</a></li>
+        <a class="list-group-item list-group-item-action vv-list" href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }} [ {{ wish.category.name }} ]</a>
         {% endfor %}
-    </ul>
+    </div>
 </main>
 {#    <table>#}
 {#        <tr>#}
