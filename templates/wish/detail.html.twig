@@ -8,8 +8,10 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ wish.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">[ {{ wish.category.name }} ]</h6>
             <h6 class="card-subtitle mb-2 text-body-secondary">créé par {{ wish.author }} le {{ wish.dateCreated ? wish.dateCreated|date('d/m/Y') : '' }}</h6>
             <p class="card-text">{{ wish.description }}</p>
+
             <div class="card-btn-vv">
             <a class="btn btn-secondary" onclick="return confirm('Etes-vous sûr de vouloir supprimer')" href="{{ path('wish_delete', {'id':wish.id}) }}">{{ 'Supprimer' }}</a>
             <a class="btn btn-secondary" href="{{ path('wish_update', {'id':wish.id}) }}">{{ 'Modifier' }}</a>

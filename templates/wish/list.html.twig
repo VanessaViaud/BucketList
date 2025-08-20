@@ -6,7 +6,7 @@
 <main>
     <ul class="list-group list-group-flush">
         {% for wish in wishes %}
-        <li ><a class="list-group-item list-group-item-action" href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }}</a></li>
+        <li ><a class="list-group-item list-group-item-action" href="{{ path('wish_detail', {'id':wish.id}) }}">{{ wish.title }} [ {{ wish.category.name }} ]</a></li>
         {% endfor %}
     </ul>
 </main>
