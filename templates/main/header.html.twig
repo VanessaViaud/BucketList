@@ -1,19 +1,37 @@
 {% block header %}
 
-<nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid header">
-        <img src="{{ asset('images/logo.png') }}" alt="logo" width="30" height="auto" class="d-inline-block align-text-top">
-        <h1>Bucket-List</h1>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid header">
+            <img src="{{ asset('images/logo.png') }}" alt="logo" width="30" height="auto"
+                 class="d-inline-block align-text-top">
+            <h1>Bucket-List</h1>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{ path('app_main') }}">{{ 'Accueil' }}</a>
-                <a class="nav-link active" aria-current="page" href="{{ path('wish_list') }}">{{ 'Catalogue' }}</a>
-                <a class="nav-link active" aria-current="page" href="{{ path('about-us') }}">{{ 'A Propos' }}</a>
-                <a class="nav-link active" aria-current="page" href="{{ path('wish_create') }}">{{ 'Ajouter' }}</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_main') }}">{{ 'Accueil' }}</a>
+                    {% if is_granted('IS_AUTHENTICATED') %}
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ path('wish_list') }}">{{ 'Catalogue' }}</a>
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ path('about-us') }}">{{ 'A Propos' }}</a>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ path('wish_create') }}">{{ 'Ajouter' }}</a>
+                    {% endif %}
+
+                    {% if is_granted('IS_AUTHENTICATED') %}
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ path('app_logout') }}">{{ 'Logout' }}</a>
+                    {% else %}
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ path('app_login') }}">{{ 'Login' }}</a>
+
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 {% endblock %}

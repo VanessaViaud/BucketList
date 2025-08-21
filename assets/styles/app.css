@@ -68,6 +68,13 @@ footer {
     background-color: #86adda;
     padding-left: 60px;
 }
+
+.vv-login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
 #wish_submit,
 .btn-secondary {
     background-color: #86adda;

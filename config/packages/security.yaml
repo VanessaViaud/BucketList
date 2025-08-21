@@ -16,6 +16,20 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                enable_csrf: true
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+
+    role_hierarchy:
+        ROLE_ADMIN: ['ROLE_MODERATEUR']
+        ROLE_MODERATEUR: ['ROLE_TRUC', 'ROLE_MACHIN']
+          # et il sont tous ROLE_USER, pas besoin de le préciser
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

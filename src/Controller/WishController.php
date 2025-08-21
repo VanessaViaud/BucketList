@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/wish', name: 'wish')]
 
@@ -33,6 +34,7 @@ final class WishController extends AbstractController
     }
 
     #[Route('/{id}', name: '_detail', requirements: ['id' => '\d+'], methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function detail(int $id, WishRepository $wishRepository): Response
     {
         $wish = $wishRepository->find($id);
@@ -50,6 +52,7 @@ final class WishController extends AbstractController
 
 
     #[Route('/create', name: '_create')]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request, EntityManagerInterface $entityManager): Response {
 
         $wish = new Wish();
@@ -72,6 +75,7 @@ final class WishController extends AbstractController
         ]);
     }
     #[Route('/update/{id}', name: '_update', requirements: ['id' => '\d+'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function update(Wish $wish, Request $request, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(WishType::class, $wish);
@@ -92,6 +96,7 @@ final class WishController extends AbstractController
     }
 
     #[Route('/delete/{id}', name: '_delete', requirements: ['id' => '\d+'])]
+    #[IsGranted('ROLE_ADMIN')]
 public function delete(Wish $wish, EntityManagerInterface $entityManager, Request $request): Response
     {
 
