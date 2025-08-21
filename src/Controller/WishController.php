@@ -18,7 +18,11 @@ final class WishController extends AbstractController
     #[Route('/list', name: '_list', methods: ['GET'])]
     public function list(WishRepository $wishRepository): Response
     {
-        $wishes = $wishRepository->findAll();
+        $wishes = $wishRepository->findPublishedWishesWithCategories();
+        //si on veut avoir tous les wishes mais il vaut mieux utiliser avec
+        //la jointure ci-dessus pour éviter d'avoir trop de requêtes SQL pour
+        //l'affichage de la page d'accueil
+       // $wishes = $wishRepository->findAll();
 
         // et on veut n'afficher que les wish publiés :
         //$wishesPublished = $wishRepository->findBy(['isPublished' => true]);

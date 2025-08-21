@@ -38,6 +38,7 @@ class Wish
 
     #[ORM\ManyToOne(inversedBy: 'wish')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull]
     private ?Category $category = null;
 
 
